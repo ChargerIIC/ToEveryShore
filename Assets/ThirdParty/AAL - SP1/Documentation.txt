@@ -1,0 +1,103 @@
+STRATEGY PACK 1: Armored Division, Update 1.2.
+by 7YearsEntertainment
+
+Creative Designer and 3d modeller: Javier Alarcón
+
+Blog with lastest news, model art gallery, and 7YE videogames:
+http://7yearsentertainment.blogspot.com.es/
+
+-------------------------------------------------------------------------
+
+Update 1.2:
+
+This asset is 100% compatible with Unity 5 as it only consist of models.
+
+
+Added the new turreter model from Strategy Pack 2 - Mobile Infantry.
+The turreter is included in Files, and Prefabs with the materials added. The turreter is a very simple material-minded model just for decorating the rotating manned turrets, doesn't includes the more than 6 materials per infantry for customization. (But it includes the option to use the model with or without helmet).
+The new turreter is not added to ALL theold prefabs; As many users will not use all the prefabs included, just when you have the prefabs for your game ready and use manned turrets, replace the turreter)
+
+So, the new turreter is included in the base COMPLETE prefabs of the vehicles, the most util of vehicle prefabs as they included all the base weapons and gadgets.
+
+
+
+OPERTURE: 
+
+This package is oriented to make a great base for Strategy or any kind of games
+with the need of a big group of vehicles, customizable, with mobile parts, with
+coloreable base textures and easiness to incorporate any cammouflage pattern you want.
+
+You can find easily the prefabs with the main vehicles and all its choices, some
+defined prefabs (APC, Armed APC, Rocket Launcher...), and entire armies of prefabs with
+a color scheme or cammo pattern.
+
+Please experiment; If you want to make a new colored army you can just change some
+of the army prefabs examples, or duplicated a folder and make there the new one.
+
+There is a LOT of textures and materials, so first explore a bit to know how it works
+and after that experiment. If you mess up the prefabs and you want them back, just 
+reimport the package.
+
+File Organization:
+------------------------------------------------------------------
+
+Army Prefabs:
+---
+7 Army list with at least 18 prefabs each one, with the customized materials
+
+DecalCustomMats:
+---
+-Custom Camouflage mats (6 patterns), Some metallic mats
+-Decal Image source folder
+-Decal Mats Folder (Narrow Decals, Cargo Decals for ASTs and Square Decals)
+
+Files:
+---
+-Source model files, textures and neutral-colored materials.
+-Source MBT + Railgun
+-Source HBT
+-Source ASV (here is the model of rockets and missiles for ASTs)
+-Alternative ASV body
+NOTE: ASV has two base bodies, to match two kinds of combinations color-metal mat. The one with a white line and metalic tracks and the other with more room for material (neat with cammo patterns). In any prefab your working on, you can just change the mesh from the ASV body from the standard or the alternative).
+-Source AST
+-Source parts of Openeable hatch, with Machinegun gunner.
+
+Prefabs:
+----
+-Complete Base prefabs and Defined vehicle prefabs (20)
+(Every prefab, and army prefabs has all parts of a complete vehicle, including decals, only they are shown or hidden)
+
+
+--------------------------------------------------------------------
+
+SHADERS:
+
+Strategy Pack - Armored Division is packaged with no special shaders. Unity basic shaders do a nice job, but sometimes limited. This package includes Diffuse, Normal and Specular maps for almost all models and parts (at least every one is neded to view the model in the best quality even in FPS perspective).
+
+So, the main majority of materials are simple Bumped Specular basic shader (specular as shiny, don't use the specular map).
+
+I recommend the use of Hardsurface Free shaders that you can find on the Unity Asset Store; Lot of the models look just great with a Reflection Cubemap
+
+Update:
+
+With Unity 5 the standard shaders are just magnific: If you use Unity 5, just update the shaders to the Standard new shader, and adjust manually the metallicity and other parameters.
+
+--------------------------------------------------------------------------------
+
+
+You can check last realeases, products and games of 7YearsEntertainment in:
+
+Blog:
+http://7yearsentertainment.blogspot.com.es/
+
+Personal 3d Art Gallery:
+http://alarconte.deviantart.com/gallery/
+
+And don't forget to see the products in sale of 7Ye in Unity Store!:
+https://www.assetstore.unity3d.com/en/#!/search/page=1/sortby=popularity/query=publisher:10351
+
+
+For any problem, suggestion of new model packs or anything, you can mail to:
+7yearsentertainment@gmail.com
+
+

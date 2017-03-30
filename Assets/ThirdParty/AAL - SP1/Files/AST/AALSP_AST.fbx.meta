@@ -1,0 +1,182 @@
+fileFormatVersion: 2
+guid: 9fa3f7039a2d65040a6966e02952a1b2
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ArtilleryBase
+    100004: ArtilleryCannon
+    100006: ArtilleryPlasmaCannon
+    100008: AST_LauncherBase
+    100010: AST_Tail
+    100012: Haul_Cargo
+    100014: LauncherPlatform
+    100016: PlasmaArtillery_Battery
+    100018: Rotator
+    100020: wheel_FL
+    100022: wheel_FR
+    100024: wheel_RL
+    100026: wheel_RL1
+    100028: wheel_RL2
+    100030: wheel_RL3
+    100032: wheel_RL4
+    100034: wheel_RR
+    400000: //RootNode
+    400002: ArtilleryBase
+    400004: ArtilleryCannon
+    400006: ArtilleryPlasmaCannon
+    400008: AST_LauncherBase
+    400010: AST_Tail
+    400012: Haul_Cargo
+    400014: LauncherPlatform
+    400016: PlasmaArtillery_Battery
+    400018: Rotator
+    400020: wheel_FL
+    400022: wheel_FR
+    400024: wheel_RL
+    400026: wheel_RL1
+    400028: wheel_RL2
+    400030: wheel_RL3
+    400032: wheel_RL4
+    400034: wheel_RR
+    2300000: //RootNode
+    2300002: ArtilleryBase
+    2300004: ArtilleryCannon
+    2300006: ArtilleryPlasmaCannon
+    2300008: AST_LauncherBase
+    2300010: AST_Tail
+    2300012: Haul_Cargo
+    2300014: LauncherPlatform
+    2300016: PlasmaArtillery_Battery
+    2300018: Rotator
+    2300020: wheel_FL
+    2300022: wheel_FR
+    2300024: wheel_RL
+    2300026: wheel_RL1
+    2300028: wheel_RL2
+    2300030: wheel_RL3
+    2300032: wheel_RL4
+    2300034: wheel_RR
+    3300000: //RootNode
+    3300002: ArtilleryBase
+    3300004: ArtilleryCannon
+    3300006: ArtilleryPlasmaCannon
+    3300008: AST_LauncherBase
+    3300010: AST_Tail
+    3300012: Haul_Cargo
+    3300014: LauncherPlatform
+    3300016: PlasmaArtillery_Battery
+    3300018: Rotator
+    3300020: wheel_FL
+    3300022: wheel_FR
+    3300024: wheel_RL
+    3300026: wheel_RL1
+    3300028: wheel_RL2
+    3300030: wheel_RL3
+    3300032: wheel_RL4
+    3300034: wheel_RR
+    4300000: AST_Head
+    4300002: wheel_FL
+    4300004: wheel_FR
+    4300006: wheel_RL
+    4300008: wheel_RR
+    4300010: AST_Tail
+    4300012: wheel_RL1
+    4300014: wheel_RL2
+    4300016: wheel_RL3
+    4300018: wheel_RL4
+    4300020: Haul_Cargo
+    4300022: ArtilleryBase
+    4300024: ArtilleryCannon
+    4300026: PlasmaArtillery_Battery
+    4300028: ArtilleryPlasmaCannon
+    4300030: AST_LauncherBase
+    4300032: Rotator
+    4300034: LauncherPlatform
+    6400000: //RootNode
+    6400002: ArtilleryBase
+    6400004: ArtilleryCannon
+    6400006: ArtilleryPlasmaCannon
+    6400008: AST_LauncherBase
+    6400010: AST_Tail
+    6400012: Haul_Cargo
+    6400014: LauncherPlatform
+    6400016: PlasmaArtillery_Battery
+    6400018: Rotator
+    6400020: wheel_FL
+    6400022: wheel_FR
+    6400024: wheel_RL
+    6400026: wheel_RL1
+    6400028: wheel_RL2
+    6400030: wheel_RL3
+    6400032: wheel_RL4
+    6400034: wheel_RR
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

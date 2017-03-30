@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 76accd0ca4c92784e8a6a2dd56acd7ef
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: AA_Cannon1
+    100002: //RootNode
+    100004: BaseAA
+    100006: Boarding_Door
+    100008: PlainCell
+    100010: Rocket
+    100012: Rocket1
+    100014: Rocket10
+    100016: Rocket11
+    100018: Rocket12
+    100020: Rocket13
+    100022: Rocket14
+    100024: Rocket2
+    100026: Rocket3
+    100028: Rocket4
+    100030: Rocket5
+    100032: Rocket6
+    100034: Rocket7
+    100036: Rocket8
+    100038: Rocket9
+    100040: RocketLauncher
+    100042: WeaponSupport
+    400000: AA_Cannon1
+    400002: //RootNode
+    400004: BaseAA
+    400006: Boarding_Door
+    400008: PlainCell
+    400010: Rocket
+    400012: Rocket1
+    400014: Rocket10
+    400016: Rocket11
+    400018: Rocket12
+    400020: Rocket13
+    400022: Rocket14
+    400024: Rocket2
+    400026: Rocket3
+    400028: Rocket4
+    400030: Rocket5
+    400032: Rocket6
+    400034: Rocket7
+    400036: Rocket8
+    400038: Rocket9
+    400040: RocketLauncher
+    400042: WeaponSupport
+    2300000: AA_Cannon1
+    2300002: //RootNode
+    2300004: BaseAA
+    2300006: Boarding_Door
+    2300008: PlainCell
+    2300010: Rocket
+    2300012: Rocket1
+    2300014: Rocket10
+    2300016: Rocket11
+    2300018: Rocket12
+    2300020: Rocket13
+    2300022: Rocket14
+    2300024: Rocket2
+    2300026: Rocket3
+    2300028: Rocket4
+    2300030: Rocket5
+    2300032: Rocket6
+    2300034: Rocket7
+    2300036: Rocket8
+    2300038: Rocket9
+    2300040: RocketLauncher
+    2300042: WeaponSupport
+    3300000: AA_Cannon1
+    3300002: //RootNode
+    3300004: BaseAA
+    3300006: Boarding_Door
+    3300008: PlainCell
+    3300010: Rocket
+    3300012: Rocket1
+    3300014: Rocket10
+    3300016: Rocket11
+    3300018: Rocket12
+    3300020: Rocket13
+    3300022: Rocket14
+    3300024: Rocket2
+    3300026: Rocket3
+    3300028: Rocket4
+    3300030: Rocket5
+    3300032: Rocket6
+    3300034: Rocket7
+    3300036: Rocket8
+    3300038: Rocket9
+    3300040: RocketLauncher
+    3300042: WeaponSupport
+    4300000: ASV_Hull
+    4300002: PlainCell
+    4300004: WeaponSupport
+    4300006: BaseAA
+    4300008: AA_Cannon1
+    4300010: RocketLauncher
+    4300012: Rocket
+    4300014: Rocket1
+    4300016: Rocket2
+    4300018: Rocket3
+    4300020: Rocket4
+    4300022: Rocket5
+    4300024: Rocket6
+    4300026: Rocket7
+    4300028: Rocket8
+    4300030: Rocket9
+    4300032: Rocket10
+    4300034: Rocket11
+    4300036: Rocket12
+    4300038: Rocket13
+    4300040: Rocket14
+    4300042: Boarding_Door
+    6400000: AA_Cannon1
+    6400002: //RootNode
+    6400004: BaseAA
+    6400006: Boarding_Door
+    6400008: PlainCell
+    6400010: Rocket
+    6400012: Rocket1
+    6400014: Rocket10
+    6400016: Rocket11
+    6400018: Rocket12
+    6400020: Rocket13
+    6400022: Rocket14
+    6400024: Rocket2
+    6400026: Rocket3
+    6400028: Rocket4
+    6400030: Rocket5
+    6400032: Rocket6
+    6400034: Rocket7
+    6400036: Rocket8
+    6400038: Rocket9
+    6400040: RocketLauncher
+    6400042: WeaponSupport
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,12 @@
+
+
+
+	Version 3:
+	- Prototype pack (45 tiles) added
+
+	Version 2:
+	- Re-render of all tiles using new rendering method
+	- Library pack (30 tiles) added
+
+	Version 1:
+	- Initial version
