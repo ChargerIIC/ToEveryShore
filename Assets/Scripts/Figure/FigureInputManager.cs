@@ -48,8 +48,15 @@ public class FigureInputManager : MonoBehaviour
         {
             moving = true;
             var dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(WayPoint.transform.position.x, WayPoint.transform.position.z));
-            this.moveToSpend -= dist;
-            aiCharacterControl.SetTarget(waypoint.transform);
+            if (moveToSpend >= dist)
+            {
+                this.moveToSpend -= dist;
+                aiCharacterControl.SetTarget(waypoint.transform);
+            }
+            else
+            {
+                //TODO: Stop movement short
+            }
         }
     }
 
@@ -64,14 +71,17 @@ public class FigureInputManager : MonoBehaviour
                 aiCharacterControl.SetTarget(transform);
                 lineRenderer.numPositions = 0;
             }
+            else
+            {
+                MovementRing.transform.position = new Vector3(WayPoint.transform.position.x, 0.5f, WayPoint.transform.position.z);
+                MovementRing.GetComponent<Ring>().Radius = this.moveToSpend * Globals.WorldToGameFactor;
+            }
         }
     }
 
     private void ActivateMovementMode()
     {
-        var ring = Instantiate(RingPreFab, transform.position, Quaternion.identity);
-        ring.transform.Rotate(new Vector3(90,0,0));
-        ring.GetComponent<Ring>().Radius = figure.Movement * Globals.WorldToGameFactor;
+        MovementRing.GetComponent<Ring>().Radius = figure.Movement * Globals.WorldToGameFactor;
     }
 
     //We only handle movement right now, but in the future there will be context sensitive options for targeting enemies
@@ -95,7 +105,6 @@ public class FigureInputManager : MonoBehaviour
                 lineRenderer.material.color = Color.blue;
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, WayPoint.transform.position);
-                //aiCharacterControl.SetTarget(waypoint.transform);
                 return;
             case (int)Layers.UnPassable:
                 //waypoint = GameObject.Instantiate(WayPointPrefab, hitData.point, Quaternion.identity, transform);
@@ -110,6 +119,21 @@ public class FigureInputManager : MonoBehaviour
             default:
                 Debug.LogError("Unkown Layer");
                 return;
+        }
+    }
+
+    GameObject ring;
+    protected GameObject MovementRing
+    {
+        get
+        {
+            if(ring == null)
+            {
+                ring = Instantiate(RingPreFab, transform.position, Quaternion.identity);
+                ring.transform.Rotate(new Vector3(90, 0, 0));
+                ring.GetComponent<Ring>().Radius = figure.Movement * Globals.WorldToGameFactor;
+            }
+            return ring;
         }
     }
 
