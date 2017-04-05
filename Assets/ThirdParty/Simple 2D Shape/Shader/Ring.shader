@@ -1,4 +1,6 @@
-﻿Shader "Simple2DShape/Ring" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Simple2DShape/Ring" {
 
 	Properties{
 		_Thickness("Thickness", Range(0.0,0.5)) = 0.2
@@ -55,7 +57,7 @@
 				{
 					fragmentInput o;
 
-					o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+					o.pos = UnityObjectToClipPos(v.vertex);
 					o.uv = v.texcoord.xy - fixed2(0.5,0.5);
 
 					return o;

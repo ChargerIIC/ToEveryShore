@@ -69,7 +69,7 @@ public class FigureInputManager : MonoBehaviour
             {
                 moving = false;
                 aiCharacterControl.SetTarget(transform);
-                lineRenderer.numPositions = 0;
+                lineRenderer.positionCount = 0;
             }
             else
             {
@@ -101,7 +101,7 @@ public class FigureInputManager : MonoBehaviour
             case (int)Layers.Passable:
                 WayPoint.GetComponent<MeshRenderer>().material.color = Color.blue;
                 WayPoint.transform.position = hitData.point;
-                lineRenderer.numPositions = 2;
+                lineRenderer.positionCount = 2;
                 lineRenderer.material.color = Color.blue;
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, WayPoint.transform.position);
@@ -110,7 +110,7 @@ public class FigureInputManager : MonoBehaviour
                 //waypoint = GameObject.Instantiate(WayPointPrefab, hitData.point, Quaternion.identity, transform);
                 WayPoint.GetComponent<MeshRenderer>().material.color = Color.red;
                 WayPoint.transform.position = hitData.point;
-                lineRenderer.numPositions = 2;
+                lineRenderer.positionCount = 2;
                 lineRenderer.material.color = Color.red;
                 lineRenderer.SetPosition(0, transform.position);
                 lineRenderer.SetPosition(1, WayPoint.transform.position);

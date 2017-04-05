@@ -95,7 +95,7 @@ public class WaypointController : MonoBehaviour
             verticies = wayPoints.Count + 1;
         }
 
-        pathToTarget.numPositions = verticies;
+        pathToTarget.positionCount = verticies;
         foreach(var vertex in wayPoints)
         {
             print("Setting Postion #" + counter + " at " + vertex);

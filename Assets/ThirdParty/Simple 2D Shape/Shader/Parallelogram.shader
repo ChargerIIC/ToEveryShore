@@ -1,4 +1,6 @@
-﻿Shader "Simple2DShape/Parallelogram" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Simple2DShape/Parallelogram" {
 
 	Properties{
 		_Width("Width", Range(0.0, 1)) = 0.618
@@ -56,7 +58,7 @@
 			{
 				fragmentInput o;
 
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 				o.uv = v.texcoord.xy - fixed2(0.5, 0.5);
 
 				return o;
