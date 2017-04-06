@@ -1,0 +1,30 @@
+Object Highlight System
+
+Supports Free and Pro Unity Version!
+Demo: http://www.3y3.net/HighLight/ObjectHighlihtSystem.html
+
+The Object Highlight System allows any user to easy add lighting and label display to any object in three simple steps. It is ideal for Point&Click games, supports any object including complex parent-child prefabs and it is highly configurable.
+
+Step 1)
+Add a box collider to the desired object. Make sure the 'Is Trigger' option is NOT set.
+
+Step 2)
+Add the highlight script to the object
+
+Step 3)
+Set the script values to match your desired behavior. There are many options, most of them optional.
+
+SCRIPT OPTIONS
+Highlight Shader: Set the desired shader or leave the default one.
+Player: Character transform. If set, the object highlight only when the character is at desired minimun distance
+Light Distance: Minimun distance to highlight the object
+Label Distance: Minimun distance to show the label
+Label to Display: Text to show when highlighted
+Label Color: Text color
+Outlined: Set ON if you wish the text to have an outline.
+Outline Color: Text outline color
+Text font: Use desired font or leave y default (arial)
+Font Size: Text size of the label
+Animation Clip: Animation to play when highlighted (can be null)
+
+IMPORTANT!! Do you see an ugly pink highlight when export your scene? This is because the used shader is not present in the exported project. Simply add a hidden object (i.e. a quad) and apply a material with the used highlight shader (by default is "Self-Illumin/Diffuse")

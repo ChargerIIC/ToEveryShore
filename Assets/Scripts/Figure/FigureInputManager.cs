@@ -95,6 +95,7 @@ public class FigureInputManager : MonoBehaviour
         switch (layerHit)
         {
             case (int)Layers.Enemy:
+            case (int)Layers.Friendly:
                 var enemy = hitData.collider.gameObject; //TODO: PLace waypoint just outside the unit
                 aiCharacterControl.SetTarget(enemy.transform);
                 return;
