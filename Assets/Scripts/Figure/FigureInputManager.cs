@@ -46,17 +46,7 @@ public class FigureInputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            moving = true;
-            var dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(WayPoint.transform.position.x, WayPoint.transform.position.z));
-            if (moveToSpend >= dist)
-            {
-                this.moveToSpend -= dist;
-                aiCharacterControl.SetTarget(waypoint.transform);
-            }
-            else
-            {
-                //TODO: Stop movement short
-            }
+            MoveToWaypoints();
         }
     }
 
@@ -122,6 +112,27 @@ public class FigureInputManager : MonoBehaviour
                 return;
         }
     }
+
+
+    #region Public Methods
+
+    public void MoveToWaypoints()
+    {
+        moving = true;
+        var dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(WayPoint.transform.position.x, WayPoint.transform.position.z));
+        if (moveToSpend >= dist)
+        {
+            this.moveToSpend -= dist;
+            aiCharacterControl.SetTarget(waypoint.transform);
+        }
+        else
+        {
+            //TODO: Stop movement short
+        }
+    }
+
+
+    #endregion Public Methods
 
     GameObject ring;
     protected GameObject MovementRing

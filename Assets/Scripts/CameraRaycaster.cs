@@ -8,7 +8,7 @@ public class CameraRaycaster : MonoBehaviour
     // INSPECTOR PROPERTIES RENDERED BY CUSTOM EDITOR SCRIPT
     [SerializeField] int[] layerPriorities;
 
-    public float maxRaycastDepth = 100f; // Hard coded value
+    public float MaxRaycastDepth = 700f; // Hard coded value
     int topPriorityLayerLastFrame = -1; // So get ? from start with Default layer terrain
 
     // Setup delegates for broadcasting layer changes to other classes
@@ -30,7 +30,7 @@ public class CameraRaycaster : MonoBehaviour
 
         // Raycast to max depth, every frame as things can move under mouse
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit[] raycastHits = Physics.RaycastAll(ray, maxRaycastDepth);
+        RaycastHit[] raycastHits = Physics.RaycastAll(ray, MaxRaycastDepth);
 
         RaycastHit? priorityHit = FindTopPriorityHit(raycastHits);
         if (!priorityHit.HasValue) // if hit no priority object

@@ -29,6 +29,8 @@ public class PlayableFigure : MonoBehaviour {
     public int SideArmor = 10;
     public int RearArmor = 10;
 
+    //This is a hidden stat used to track terrain movement costs
+    private float movementCost = 1.0f;
     #endregion Stats
 
     // Use this for initialization
