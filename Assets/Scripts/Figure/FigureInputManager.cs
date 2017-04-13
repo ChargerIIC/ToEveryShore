@@ -60,11 +60,13 @@ public class FigureInputManager : MonoBehaviour
                 moving = false;
                 aiCharacterControl.SetTarget(transform);
                 lineRenderer.positionCount = 0;
+                MovementRing.transform.position = new Vector3(WayPoint.transform.position.x, 0.5f, WayPoint.transform.position.z);
+                MovementRing.GetComponent<Ring>().Radius = this.moveToSpend * Globals.WorldToGameFactor;
+
             }
             else
             {
-                MovementRing.transform.position = new Vector3(WayPoint.transform.position.x, 0.5f, WayPoint.transform.position.z);
-                MovementRing.GetComponent<Ring>().Radius = this.moveToSpend * Globals.WorldToGameFactor;
+                MoveToWaypoints();
             }
         }
     }
@@ -127,7 +129,8 @@ public class FigureInputManager : MonoBehaviour
         }
         else
         {
-            //TODO: Stop movement short
+
+            aiCharacterControl.SetTarget(waypoint.transform);
         }
     }
 

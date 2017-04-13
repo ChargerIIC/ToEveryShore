@@ -22,7 +22,8 @@ public class HighLight : MonoBehaviour {
 	public Transform player;				//Player character. Used to measure distances. Leave null for infinite distance activation
 	public float lightDistance=4.0f;		//Minimun distace from player to object needed to switch highlight on
 	public float labelDistance=2.0f;		//Minimun distace from player to object needed to show label
-	public String labelToDisplay="LABEL";	//Text to show
+	//public String labelToDisplay="LABEL";	//Text to show
+    private String labelToDisplay;
 	public Color labelColor=Color.white;	//Text color
 	public bool outlined=true;				//Set true for display outlined text
 	public Color outlineColor=Color.black;	//Outline text color
@@ -31,7 +32,7 @@ public class HighLight : MonoBehaviour {
 	public AnimationClip animationClip = null;	//Animation to play when highlighted. The clip MUST be on the animation array of th asset
 
 	private List<Shader> originalObjetsShader;
-	private bool highlighted=false;
+	public bool highlighted=false;
 	private GUIStyle style;
 	private float dist = 0.0f;
 	private Vector3 originalPosition;
@@ -46,21 +47,26 @@ public class HighLight : MonoBehaviour {
 	/* Called when user clicks the object   */
 	/* Add you own code to interact with it */
 	void OnMouseDown() {
-		Debug.Log ("Click!!");
+		Debug.Log (gameObject.name + "Clicked.");
 	}
 
-	void Start() {
+	void Start()
+	{
+	    labelToDisplay = gameObject.name;//TODO: CHange to model name
         animationComponent = gameObject.GetComponent<Animation>();
 
         if (highightShader==null)
 			highightShader=Shader.Find( "Self-Illumin/Diffuse" );
 
-		style = new GUIStyle();
-		style.normal.textColor = labelColor;  
-		style.alignment = TextAnchor.UpperCenter ;
-		style.wordWrap = true;
-		style.fontSize = fontSize;
-		if(textFont!=null)
+	    style = new GUIStyle
+	    {
+	        normal = {textColor = labelColor},
+	        alignment = TextAnchor.UpperCenter,
+	        wordWrap = true,
+	        fontSize = fontSize
+	    };
+
+	    if(textFont!=null)
 			style.font=textFont;
 		else
 			style.font= (Font)Resources.GetBuiltinResource(typeof(Font), "Arial.ttf");
@@ -135,14 +141,16 @@ public class HighLight : MonoBehaviour {
 			return;
 		
 		int i=0;
-		Component[] renderers;
-		renderers = GetComponentsInChildren<Renderer>();
-		
-		foreach (Renderer singleRenderer in renderers)
-		foreach (Material singleMaterial in singleRenderer.materials) {
-			singleMaterial.shader=originalObjetsShader[i++];
-		}
-		if (animationClip != null) {
+	    Component[] renderers = GetComponentsInChildren<Renderer>();
+
+	    foreach (Renderer singleRenderer in renderers)
+	    {
+	        foreach (Material singleMaterial in singleRenderer.materials)
+	        {
+	            singleMaterial.shader = originalObjetsShader[i++];
+	        }
+	    }
+	    if (animationClip != null) {
             animationComponent.Stop (animationClip.name);
 			this.transform.position=originalPosition;
 			this.transform.rotation=originalRotation;
