@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class CommandManager : MonoBehaviour
 {
     public Text CurrentPhaseText;
+    public Button Button1;
+
+    public GameObject SelectedFigure;
 
     private string phaseText = "";
     private string currentPlayer = "";
@@ -26,9 +29,16 @@ public class CommandManager : MonoBehaviour
         CurrentPhaseText.text = currentPlayer + "-" + phaseText + " phase";
     }
 
+    private void setupShootingButton(Button button)
+    {
+        button.GetComponent<Text>().text = "Open Fire";
+        button.onClick += SelectedFigure.GetComponent<FigureInputManager>().OpenFire();
+    }
+
     public void UpdatePhase(TurnPhase currentPhase)
     {
         phaseText = currentPhase.ToString();
+        setupShootingButton(Button1);
         UpdateCommandTextBar();
     }
 

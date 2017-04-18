@@ -28,6 +28,26 @@ public class GameManager : MonoBehaviour
         UIController.NotifyOfPhaseChange(CurrentPhase);
     }
 
+    #region Public Methods
+
+    public void NextPhase()
+    {
+        switch (CurrentPhase)
+        {
+            case TurnPhase.Movement:
+                CurrentPhase = TurnPhase.Shooting;
+                break;
+            case TurnPhase.Shooting:
+                //TODO: Later this will move to assault and then the other player's turn
+                CurrentPhase = TurnPhase.Movement;
+                break;
+        }
+
+        UpdatePhase();
+    }
+
+    #endregion Public Methods
+
     private GuiController uiController;
     protected GuiController UIController
     {
