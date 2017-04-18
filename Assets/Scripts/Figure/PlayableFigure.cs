@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayableFigure : MonoBehaviour {
+public class PlayableFigure : Figure {
 
     #region Fluff
 
@@ -18,25 +18,22 @@ public class PlayableFigure : MonoBehaviour {
 
     #region Stats
 
-    //Movement
-    public MoveType MovementType = MoveType.HalfTrack;
-    public int Movement = 0;
-
-    //Defensive
-    public int Morale = 1;
-    public int ToHit = 1;
-    public int FrontArmor = 10;
-    public int SideArmor = 10;
-    public int RearArmor = 10;
 
     //This is a hidden stat used to track terrain movement costs
     private float movementCost = 1.0f;
     #endregion Stats
 
+    #region Components
+
+    private HighLight highlighter;
+
+    #endregion Components
+
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start ()
+    {
+        highlighter = GetComponent<HighLight>();
+    }
 	
 	// Update is called once per frame
 	void Update () {

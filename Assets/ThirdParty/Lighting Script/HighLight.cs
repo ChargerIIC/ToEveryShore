@@ -40,6 +40,8 @@ public class HighLight : MonoBehaviour {
 
     private Animation animationComponent;
 
+    [SerializeField] private bool isHighlighted = false;
+
     public HighLight()
     {
     }
@@ -47,7 +49,7 @@ public class HighLight : MonoBehaviour {
 	/* Called when user clicks the object   */
 	/* Add you own code to interact with it */
 	void OnMouseDown() {
-		Debug.Log (gameObject.name + "Clicked.");
+		//Debug.Log (gameObject.name + "Clicked.");
 	}
 
 	void Start()
@@ -157,4 +159,23 @@ public class HighLight : MonoBehaviour {
 		}
 		highlighted = false;
 	}
+
+    private void OnMouseUpAsButton()
+    {
+        //TODO: Notify other units they are not highlighted (through player?)
+        this.isHighlighted = true;
+        //TODO: Notify UI of stat bar change
+        UIController.NotifyOfUnitChange(gameObject);
+    }
+
+    #region Properties
+
+    private GuiController uiController;
+    protected GuiController UIController
+    {
+        get { return uiController ?? (uiController = FindObjectOfType<GuiController>()); }
+    }
+
+
+    #endregion Properties
 }
