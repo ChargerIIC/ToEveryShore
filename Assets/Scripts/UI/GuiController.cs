@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class GuiController : MonoBehaviour
 {
-    //public GameObject StatPanel;
-    private StatsManager stats;
-
 	// Use this for initialization
 	void Start ()
 	{
-	    //stats = StatPanel.GetComponent<StatsManager>();
-	    stats = GetComponentInChildren<StatsManager>();
 	}
 	
 	// Update is called once per frame
@@ -22,6 +17,29 @@ public class GuiController : MonoBehaviour
     public void NotifyOfUnitChange(GameObject pGameObject)
     {
         var figure = pGameObject.GetComponent<PlayableFigure>();//grab the figure class
-        stats.Update(figure);
+        Stats.Update(figure);
     }
+
+    public void NotifyOfPlayerChange(PlayerId currentPlayer)
+    {
+        Commands.UpdatePlayer(currentPlayer);
+    }
+
+    public void NotifyOfPhaseChange(TurnPhase currentPhase)
+    {
+        Commands.UpdatePhase(currentPhase);
+    }
+
+    private CommandManager commandManager;
+    protected CommandManager Commands
+    {
+        get { return commandManager ?? (commandManager = GetComponentInChildren<CommandManager>()); }
+    }
+
+    private StatsManager statsManager;
+    protected StatsManager Stats
+    {
+        get { return statsManager ?? (statsManager = GetComponentInChildren<StatsManager>()); }
+    }
+
 }
