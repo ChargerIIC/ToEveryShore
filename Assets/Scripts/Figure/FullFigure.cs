@@ -15,14 +15,4 @@ public class FullFigure : PlayableFigure {
 
     #endregion Fluff
 
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

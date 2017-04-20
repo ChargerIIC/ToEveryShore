@@ -40,7 +40,7 @@ public class HighLight : MonoBehaviour {
 
     private Animation animationComponent;
 
-    [SerializeField] private bool isHighlighted = false;
+    [SerializeField] protected bool isHighlighted = false;
 
     public HighLight()
     {
@@ -52,7 +52,7 @@ public class HighLight : MonoBehaviour {
 		//Debug.Log (gameObject.name + "Clicked.");
 	}
 
-	void Start()
+	public void  Initialize()
 	{
 	    labelToDisplay = gameObject.name;//TODO: CHange to model name
         animationComponent = gameObject.GetComponent<Animation>();

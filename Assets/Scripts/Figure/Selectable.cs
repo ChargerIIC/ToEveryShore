@@ -10,8 +10,10 @@ public class Selectable : HighLight
 {
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+	    Initialize();
+
 	}
 	
 	// Update is called once per frame

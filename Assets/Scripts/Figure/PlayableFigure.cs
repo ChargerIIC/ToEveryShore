@@ -15,14 +15,11 @@ public class PlayableFigure : Figure {
 
     #region Components
 
-    private HighLight highlighter;
-
     #endregion Components
 
     // Use this for initialization
     void Start ()
     {
-        highlighter = GetComponent<HighLight>();
     }
 	
 	// Update is called once per frame
