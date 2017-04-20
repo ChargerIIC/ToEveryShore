@@ -5,16 +5,6 @@ using UnityEngine.AI;
 
 public class PlayableFigure : Figure {
 
-    #region Fluff
-
-    public string VehicleName = "";
-    public string CommanderName = "";
-    //TODO: Add Faction Enums (informational only)
-    public string Model = "";
-    public string Chassis = "";
-    //TODO: Unit Type
-
-    #endregion Fluff
 
     #region Stats
 

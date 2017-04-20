@@ -27,7 +27,7 @@ public class StatsManager : MonoBehaviour
 		
 	}
 
-    internal void Update(PlayableFigure figure)
+    internal void Update(FullFigure figure)
     {
         NameText.text = "Name: " + figure.CommanderName;
         VehicleDescText.text = "Vehicle: " + figure.VehicleName + " " + figure.Chassis;

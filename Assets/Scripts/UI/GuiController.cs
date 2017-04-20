@@ -16,7 +16,7 @@ public class GuiController : MonoBehaviour
 
     public void NotifyOfUnitChange(GameObject pGameObject)
     {
-        var figure = pGameObject.GetComponent<PlayableFigure>();//grab the figure class
+        var figure = pGameObject.GetComponent<FullFigure>();//grab the figure class
         Stats.Update(figure);
     }
 
