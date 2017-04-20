@@ -21,13 +21,11 @@ public class FigureInputManager : MonoBehaviour
     public float moveToSpend;
     private bool moving;
     private float stopDistance = 0.1f;
-    private TurnPhase currentPhase;
 
     // Use this for initialization
     void Start ()
     {
-        currentPhase = TurnPhase.Movement;
-        
+       
         cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
         cameraRaycaster.notifyMouseClickObservers += ProcessMouseInput;
         aiCharacterControl = GetComponent<AICharacterControl>();
@@ -47,20 +45,20 @@ public class FigureInputManager : MonoBehaviour
 
     private void ProcessKeyboardInput()
     {
-        if (currentPhase == TurnPhase.Movement)
-        {
-            if (Input.GetKeyDown(KeyCode.M))
-            {
-                MoveToWaypoints();
-            }
-        }
-        else if (currentPhase == TurnPhase.Shooting)
-        {
-            if (Input.GetKeyDown(KeyCode.KeypadEnter))
-            {
-                OpenFire();
-            }
-        }
+        //if (currentPhase == TurnPhase.Movement)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.M))
+        //    {
+        //        MoveToWaypoints();
+        //    }
+        //}
+        //else if (currentPhase == TurnPhase.Shooting)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        //    {
+        //        OpenFire();
+        //    }
+        //}
     }
 
     private void ProcessMovement()

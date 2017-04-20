@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Per the GDD, this is a stat holding class that represents any figure that has interaction with the rules (tanks, infantry, etc.)
 /// </summary>
-public class Figure : MonoBehaviour {
+public class Figure : Model {
 
     //Movement
     public MoveType MovementType = MoveType.HalfTrack;
