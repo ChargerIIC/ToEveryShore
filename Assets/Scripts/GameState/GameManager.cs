@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public PlayerId CurrentPlayer;
     public TurnPhase CurrentPhase;
 
+    public GameObject SelectedFriendlyObject;
+    public GameObject SelectedEnemyObject;
+
 	// Use this for initialization
 	void Start () {
 		CurrentPlayer = PlayerId.PlayerOne; //Default
@@ -48,6 +51,18 @@ public class GameManager : MonoBehaviour
 
     public void NotifyOfUnitSelection(GameObject selectedFigure)
     {
+        if (selectedFigure.layer == (int) Layers.Friendly)
+        {
+            if (SelectedFriendlyObject != null)
+            {
+                SelectedFriendlyObject.GetComponent<Selectable>().IsSelected = false; //deselect previous figure
+            }
+            SelectedFriendlyObject = selectedFigure;
+        }
+        else
+        {
+            SelectedEnemyObject = selectedFigure;
+        }
         UIController.NotifyOfUnitChange(selectedFigure);
     }
 

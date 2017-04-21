@@ -23,6 +23,7 @@ public class Selectable : HighLight
 
     public bool IsSelected
     {
-        get { return this.isHighlighted; }
+        get { return isHighlighted; }
+        set { isHighlighted = value; }
     }
 }
