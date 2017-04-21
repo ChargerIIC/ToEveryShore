@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour
         UpdatePhase();
     }
 
+    public void NotifyOfUnitSelection(GameObject selectedFigure)
+    {
+        UIController.NotifyOfUnitChange(selectedFigure);
+    }
+
     #endregion Public Methods
 
     private GuiController uiController;
