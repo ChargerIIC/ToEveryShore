@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public PlayerId CurrentPlayer;
     public TurnPhase CurrentPhase;
 
+    public GameObject CameraObject;
+    public GameObject RingPrefab;
+    public GameObject WaypointPrefab;
+
     public GameObject SelectedEnemyObject;
 
 	// Use this for initialization
@@ -51,7 +55,10 @@ public class GameManager : MonoBehaviour
                 {
                     Destroy(SelectedFriendlyObject.GetComponent<ShootInputController>());
                 }
-                SelectedFriendlyObject.AddComponent<MoveInputController>();
+                var moveInput = SelectedFriendlyObject.AddComponent<MoveInputController>();
+                moveInput.CameraRig = CameraObject;
+                moveInput.RingPreFab = RingPrefab;
+                moveInput.WayPointPrefab = WaypointPrefab;
                 break;
         }
     }
@@ -94,6 +101,7 @@ public class GameManager : MonoBehaviour
     }
 
     private GuiController uiController;
+
     protected GuiController UIController
     {
         get { return uiController ?? (uiController = FindObjectOfType<GuiController>()); }
