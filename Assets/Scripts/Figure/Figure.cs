@@ -21,4 +21,5 @@ public class Figure : Model {
     public int Morale = 8;
     public int Skill = 8;
 
+    public List<Weapon> Weapons;
 }
