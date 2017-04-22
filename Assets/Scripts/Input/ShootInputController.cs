@@ -14,15 +14,18 @@ public class ShootInputController : MonoBehaviour {
     //Camera Rig so we can find the Camera Raycaster
     public GameObject CameraRig;
     private PlayableFigure figure = null;
+    private GameManager gameManager = null;
     private CameraRaycaster cameraRaycaster = null;
     private LineRenderer lineRenderer = null;
 
     #endregion Class Level Variables
 
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start ()
+    {
+        figure = gameObject.GetComponent<PlayableFigure>();
+        gameManager = FindObjectOfType<GameManager>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,6 +34,10 @@ public class ShootInputController : MonoBehaviour {
 
     internal void OpenFire()
     {
-        throw new NotImplementedException();
+        foreach (var weapon in figure.Weapons)
+        {
+            Debug.Log("Firing " + weapon.Name);
+            gameManager.ResolveAttack(weapon);
+        }
     }
 }

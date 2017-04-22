@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -61,6 +62,14 @@ public class GameManager : MonoBehaviour
                 moveInput.WayPointPrefab = WaypointPrefab;
                 break;
         }
+    }
+
+    public void ResolveAttack(Weapon weapon, GameObject target = null)
+    {
+        if (target == null)
+            target = SelectedEnemyObject;
+
+        Debug.Log("Firing " + weapon.Name + " at " + target.name);
     }
 
     #region Public Methods
