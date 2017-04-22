@@ -76,30 +76,6 @@ public class GameManager : MonoBehaviour
 
     public void NotifyOfUnitSelection(GameObject selectedFigure)
     {
-        if (selectedFigure.layer == (int) Layers.Friendly)
-        {
-            if (SelectedFriendlyObject != null)
-            {
-                SelectedFriendlyObject.GetComponent<Selectable>().IsSelected = false; //deselect previous figure
-                if (SelectedFriendlyObject.GetComponent<MoveInputController>())
-                {
-                    //TODO: Remove Controller Component
-                }
-            }
-            SelectedFriendlyObject = selectedFigure;
-            if (CurrentPhase == TurnPhase.Movement)
-            {
-                SelectedFriendlyObject.AddComponent<MoveInputController>();
-            }
-            else if (CurrentPhase == TurnPhase.Shooting)
-            {
-                SelectedFriendlyObject.AddComponent<ShootInputController>();
-            }
-        }
-        else
-        {
-            SelectedEnemyObject = selectedFigure;
-        }
         UIController.NotifyOfUnitChange(selectedFigure);
     }
 

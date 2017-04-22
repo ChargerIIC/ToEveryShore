@@ -165,16 +165,10 @@ public class HighLight : MonoBehaviour {
         //TODO: Notify other units they are not highlighted (through player?)
         this.isHighlighted = true;
         GameManager.NotifyOfUnitSelection(gameObject);
-        //UIController.NotifyOfUnitChange(gameObject);
     }
 
     #region Properties
 
-    //private GuiController uiController;
-    //protected GuiController UIController
-    //{
-    //    get { return uiController ?? (uiController = FindObjectOfType<GuiController>()); }
-    //}
     private GameManager gameManager;
 
     protected GameManager GameManager
