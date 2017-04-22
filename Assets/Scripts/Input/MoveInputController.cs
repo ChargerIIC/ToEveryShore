@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityStandardAssets.Characters.ThirdPerson;
-using UnityEngine;
 using MoenenGames.Shape;
+using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
 
-public class FigureInputManager : MonoBehaviour
-{
+public class MoveInputController : MonoBehaviour {
+
+    #region Class Level Variables
+
     //Prefab to create waypoints
     public GameObject WayPointPrefab;
     //Camera Rig so we can find the Camera Raycaster
@@ -22,10 +24,13 @@ public class FigureInputManager : MonoBehaviour
     private bool moving;
     private float stopDistance = 0.1f;
 
+
+    #endregion Class Level Variables
+
+    #region Private Methods
+
     // Use this for initialization
-    void Start ()
-    {
-       
+    void Start () {
         cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
         cameraRaycaster.notifyMouseClickObservers += ProcessMouseInput;
         aiCharacterControl = GetComponent<AICharacterControl>();
@@ -33,7 +38,7 @@ public class FigureInputManager : MonoBehaviour
         moveToSpend = figure.Movement * Globals.WorldToGameFactor;
         lineRenderer = GetComponent<LineRenderer>();
         //TODO add to workflow later
-        ActivateMovementMode();
+        MovementRing.GetComponent<Ring>().Radius = figure.Movement * Globals.WorldToGameFactor;
     }
 
     // Update is called once per frame
@@ -41,24 +46,6 @@ public class FigureInputManager : MonoBehaviour
     {
         ProcessKeyboardInput();
         ProcessMovement();
-	}
-
-    private void ProcessKeyboardInput()
-    {
-        //if (currentPhase == TurnPhase.Movement)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.M))
-        //    {
-        //        MoveToWaypoints();
-        //    }
-        //}
-        //else if (currentPhase == TurnPhase.Shooting)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        //    {
-        //        OpenFire();
-        //    }
-        //}
     }
 
     private void ProcessMovement()
@@ -66,7 +53,7 @@ public class FigureInputManager : MonoBehaviour
         if (moving)
         {
             var dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(WayPoint.transform.position.x, WayPoint.transform.position.z));
-            if(dist <= stopDistance)
+            if (dist <= stopDistance)
             {
                 moving = false;
                 aiCharacterControl.SetTarget(transform);
@@ -82,12 +69,7 @@ public class FigureInputManager : MonoBehaviour
         }
     }
 
-    private void ActivateMovementMode()
-    {
-        MovementRing.GetComponent<Ring>().Radius = figure.Movement * Globals.WorldToGameFactor;
-    }
-
-    //We only handle movement right now, but in the future there will be context sensitive options for targeting enemies
+    //We only handle movement right now
     /// <summary>
     /// Handles Mouse Clicks while in Move Mode
     /// </summary>
@@ -127,6 +109,8 @@ public class FigureInputManager : MonoBehaviour
     }
 
 
+    #endregion Private Methods
+
     #region Public Methods
 
     public void MoveToWaypoints()
@@ -136,24 +120,34 @@ public class FigureInputManager : MonoBehaviour
         if (moveToSpend >= dist)
         {
             this.moveToSpend -= dist;
-            aiCharacterControl.SetTarget(waypoint.transform);
+            aiCharacterControl.SetTarget(WayPoint.transform);
         }
         else
         {
 
-            aiCharacterControl.SetTarget(waypoint.transform);
+            aiCharacterControl.SetTarget(WayPoint.transform);
         }
     }
 
 
+    public void ProcessKeyboardInput()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            MoveToWaypoints();
+        }
+    }
+
     #endregion Public Methods
+
+    #region Properties
 
     GameObject ring;
     protected GameObject MovementRing
     {
         get
         {
-            if(ring == null)
+            if (ring == null)
             {
                 ring = Instantiate(RingPreFab, transform.position, Quaternion.identity);
                 ring.transform.Rotate(new Vector3(90, 0, 0));
@@ -163,21 +157,18 @@ public class FigureInputManager : MonoBehaviour
         }
     }
 
-    public void OpenFire()
-    {
-        
-    }
-
     GameObject waypoint;
     protected GameObject WayPoint
     {
         get
         {
-            if(waypoint == null)
+            if (waypoint == null)
             {
-                waypoint = Instantiate(WayPointPrefab,transform.position, Quaternion.identity);
+                waypoint = Instantiate(WayPointPrefab, transform.position, Quaternion.identity);
             }
             return waypoint;
         }
     }
+
+    #endregion Properties
 }

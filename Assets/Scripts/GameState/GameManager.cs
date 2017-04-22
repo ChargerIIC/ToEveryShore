@@ -56,8 +56,20 @@ public class GameManager : MonoBehaviour
             if (SelectedFriendlyObject != null)
             {
                 SelectedFriendlyObject.GetComponent<Selectable>().IsSelected = false; //deselect previous figure
+                if (SelectedFriendlyObject.GetComponent<MoveInputController>())
+                {
+                    //TODO: Remove Controller Component
+                }
             }
             SelectedFriendlyObject = selectedFigure;
+            if (CurrentPhase == TurnPhase.Movement)
+            {
+                SelectedFriendlyObject.AddComponent<MoveInputController>();
+            }
+            else if (CurrentPhase == TurnPhase.Shooting)
+            {
+                SelectedFriendlyObject.AddComponent<ShootInputController>();
+            }
         }
         else
         {

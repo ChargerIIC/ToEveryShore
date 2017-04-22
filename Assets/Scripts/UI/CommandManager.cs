@@ -31,24 +31,26 @@ public class CommandManager : MonoBehaviour
     private void setupShootingButton(Button button)
     {
         button.GetComponentInChildren<Text>().text = "Open Fire";
+        button.onClick.RemoveAllListeners();
         button.onClick.AddListener(selectedFigureOpenFire); //Why the hell doesn't unity accept the normal += sytax ?
     }
 
     private void selectedFigureOpenFire()
     {
-        var inputManager = SelectedFigure.GetComponent<FigureInputManager>();
+        var inputManager = SelectedFigure.GetComponent<ShootInputController>();
         inputManager.OpenFire();
     }
 
     private void setupMoveButton(Button button)
     {
         button.GetComponentInChildren<Text>().text = "Move";
+        button.onClick.RemoveAllListeners();
         button.onClick.AddListener(selectedFigureMove); //Why the hell doesn't unity accept the normal += sytax ?
     }
 
     private void selectedFigureMove()
     {
-        var inputManager = SelectedFigure.GetComponent<FigureInputManager>();
+        var inputManager = SelectedFigure.GetComponent<MoveInputController>();
         inputManager.MoveToWaypoints();
     }
 
