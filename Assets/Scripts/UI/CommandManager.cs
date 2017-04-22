@@ -57,13 +57,14 @@ public class CommandManager : MonoBehaviour
     public void UpdatePhase(TurnPhase currentPhase)
     {
         phaseText = currentPhase.ToString();
-        if (currentPhase == TurnPhase.Shooting)
+        switch (currentPhase)
         {
-            setupShootingButton(Button1);
-        }
-        else if (currentPhase == TurnPhase.Movement)
-        {
-            setupMoveButton(Button1);
+            case TurnPhase.Shooting:
+                setupShootingButton(Button1);
+                break;
+            case TurnPhase.Movement:
+                setupMoveButton(Button1);
+                break;
         }
         UpdateCommandTextBar();
     }

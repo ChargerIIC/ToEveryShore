@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public PlayerId CurrentPlayer;
     public TurnPhase CurrentPhase;
 
-    public GameObject SelectedFriendlyObject;
     public GameObject SelectedEnemyObject;
 
 	// Use this for initialization
@@ -28,7 +27,33 @@ public class GameManager : MonoBehaviour
 
     void UpdatePhase()
     {
+        setupSelectedFigureInputControllers();
         UIController.NotifyOfPhaseChange(CurrentPhase);
+    }
+
+    private void setupSelectedFigureInputControllers()
+    {
+        switch (CurrentPhase)
+        {
+            case TurnPhase.Shooting:
+                if (SelectedFriendlyObject == null)
+                    break;
+                if (SelectedFriendlyObject.GetComponent<MoveInputController>())
+                {
+                    Destroy(SelectedFriendlyObject.GetComponent<MoveInputController>());
+                }
+                SelectedFriendlyObject.AddComponent<ShootInputController>();
+                break;
+            case TurnPhase.Movement:
+                if (SelectedFriendlyObject == null)
+                    break;
+                if (SelectedFriendlyObject.GetComponent<ShootInputController>())
+                {
+                    Destroy(SelectedFriendlyObject.GetComponent<ShootInputController>());
+                }
+                SelectedFriendlyObject.AddComponent<MoveInputController>();
+                break;
+        }
     }
 
     #region Public Methods
@@ -79,6 +104,18 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion Public Methods
+
+    private GameObject selectedFriendlyFigure;
+
+    public GameObject SelectedFriendlyObject
+    {
+        get { return selectedFriendlyFigure; }
+        set
+        {
+            selectedFriendlyFigure = value;
+            setupSelectedFigureInputControllers();
+        }
+    }
 
     private GuiController uiController;
     protected GuiController UIController
