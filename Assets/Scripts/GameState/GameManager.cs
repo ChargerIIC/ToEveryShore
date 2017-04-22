@@ -64,12 +64,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ResolveAttack(Weapon weapon, GameObject target = null)
+    public void ResolveAttack(Weapon weapon, FullFigure target = null)
     {
         if (target == null)
-            target = SelectedEnemyObject;
+            target = SelectedEnemyObject.GetComponent<FullFigure>();
 
         Debug.Log("Firing " + weapon.Name + " at " + target.name);
+        //determine if hit
+        var toHitRoll = UnityEngine.Random.Range(1,7) + UnityEngine.Random.Range(1,7);
+        bool hit = (toHitRoll >= target.ToHit);
+        Debug.Log("Rolled " + toHitRoll + " to hit target: " + hit);
+        if (hit)
+        {
+            var toPenRoll = (UnityEngine.Random.Range(1, 7) + UnityEngine.Random.Range(1, 7)) + weapon.Penetration;
+            bool pen = (toPenRoll >= target.FrontArmor);//TODO: Determine which facing was hit
+            Debug.Log("Rolled " + toPenRoll + " to penetrate armor: " + pen);
+            if (pen)
+            {
+                Debug.Log("Dealing " + weapon.Damage + " damage");
+                target.Struct = target.Struct - weapon.Damage;
+            }
+        }
+
     }
 
     #region Public Methods
@@ -92,6 +108,14 @@ public class GameManager : MonoBehaviour
 
     public void NotifyOfUnitSelection(GameObject selectedFigure)
     {
+        if (selectedFigure.layer == (int) Layers.Friendly)
+        {
+            SelectedFriendlyObject = selectedFigure;
+        }
+        else if (selectedFigure.layer == (int) Layers.Enemy)
+        {
+            SelectedEnemyObject = selectedFigure;
+        }
         UIController.NotifyOfUnitChange(selectedFigure);
     }
 
