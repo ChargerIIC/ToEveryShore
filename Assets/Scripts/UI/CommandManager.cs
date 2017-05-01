@@ -54,20 +54,20 @@ public class CommandManager : MonoBehaviour
         inputManager.MoveToWaypoints();
     }
 
-    public void UpdatePhase(TurnPhase currentPhase)
-    {
-        phaseText = currentPhase.ToString();
-        switch (currentPhase)
-        {
-            case TurnPhase.Shooting:
-                setupShootingButton(Button1);
-                break;
-            case TurnPhase.Movement:
-                setupMoveButton(Button1);
-                break;
-        }
-        UpdateCommandTextBar();
-    }
+    //public void UpdatePhase(TurnPhase currentPhase)
+    //{
+    //    phaseText = currentPhase.ToString();
+    //    switch (currentPhase)
+    //    {
+    //        case TurnPhase.Shooting:
+    //            setupShootingButton(Button1);
+    //            break;
+    //        case TurnPhase.Movement:
+    //            setupMoveButton(Button1);
+    //            break;
+    //    }
+    //    UpdateCommandTextBar();
+    //}
 
     public void UpdatePlayer(PlayerId player)
     {
