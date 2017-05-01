@@ -36,33 +36,34 @@ public class GameManager : MonoBehaviour
     //    UIController.NotifyOfPhaseChange(CurrentPhase);
     //}
 
-    //private void setupSelectedFigureInputControllers()
-    //{
-    //    switch (CurrentPhase)
-    //    {
-    //        case TurnPhase.Shooting:
-    //            if (SelectedFriendlyObject == null)
-    //                break;
-    //            if (SelectedFriendlyObject.GetComponent<MoveInputController>())
-    //            {
-    //                Destroy(SelectedFriendlyObject.GetComponent<MoveInputController>());
-    //            }
-    //            SelectedFriendlyObject.AddComponent<ShootInputController>();
-    //            break;
-    //        case TurnPhase.Movement:
-    //            if (SelectedFriendlyObject == null)
-    //                break;
-    //            if (SelectedFriendlyObject.GetComponent<ShootInputController>())
-    //            {
-    //                Destroy(SelectedFriendlyObject.GetComponent<ShootInputController>());
-    //            }
-    //            var moveInput = SelectedFriendlyObject.AddComponent<MoveInputController>();
-    //            moveInput.CameraRig = CameraObject;
-    //            moveInput.RingPreFab = RingPrefab;
-    //            moveInput.WayPointPrefab = WaypointPrefab;
-    //            break;
-    //    }
-    //}
+    private void setupSelectedFigureInputControllers()
+    {
+
+        //switch (CurrentPhase)
+        //{
+        //    case TurnPhase.Shooting:
+        //        if (SelectedFriendlyObject == null)
+        //            break;
+        //        if (SelectedFriendlyObject.GetComponent<MoveInputController>())
+        //        {
+        //            Destroy(SelectedFriendlyObject.GetComponent<MoveInputController>());
+        //        }
+        //        SelectedFriendlyObject.AddComponent<ShootInputController>();
+        //        break;
+        //    case TurnPhase.Movement:
+        //        if (SelectedFriendlyObject == null)
+        //            break;
+        //        if (SelectedFriendlyObject.GetComponent<ShootInputController>())
+        //        {
+        //            Destroy(SelectedFriendlyObject.GetComponent<ShootInputController>());
+        //        }
+        //        var moveInput = SelectedFriendlyObject.AddComponent<MoveInputController>();
+        //        moveInput.CameraRig = CameraObject;
+        //        moveInput.RingPreFab = RingPrefab;
+        //        moveInput.WayPointPrefab = WaypointPrefab;
+        //        break;
+        //}
+    }
 
     public void ResolveAttack(Weapon weapon, FullFigure target = null)
     {
@@ -129,7 +130,7 @@ public class GameManager : MonoBehaviour
         set
         {
             selectedFriendlyFigure = value;
-            //setupSelectedFigureInputControllers();
+            setupSelectedFigureInputControllers();
         }
     }
 
