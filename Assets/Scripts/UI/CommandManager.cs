@@ -7,15 +7,20 @@ using UnityEngine.UI;
 public class CommandManager : MonoBehaviour
 {
     public Text CurrentPhaseText;
+
     public Button Button1;
+    public Button Button2;
+    public Button Button3;
 
-    public GameObject SelectedFigure;
+    public FullFigure SelectedFigure;
+    public GameObject RingPrefab;
+    public GameObject WaypointPrefab;
 
-    private string phaseText = "";
     private string currentPlayer = "";
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 	}
 	
 	// Update is called once per frame
@@ -25,14 +30,22 @@ public class CommandManager : MonoBehaviour
 
     private void UpdateCommandTextBar()
     {
-        CurrentPhaseText.text = currentPlayer + "-" + phaseText + " phase";
+        CurrentPhaseText.text = currentPlayer;
     }
 
-    private void setupShootingButton(Button button)
+    private void setupShootingButton()
     {
-        button.GetComponentInChildren<Text>().text = "Open Fire";
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(selectedFigureOpenFire); //Why the hell doesn't unity accept the normal += sytax ?
+        SelectedFigure.gameObject.AddComponent<ShootInputController>();
+
+        //TODO: Button for each weapon
+        Button1.GetComponentInChildren<Text>().text = "";
+        Button1.enabled = false;
+        Button2.GetComponentInChildren<Text>().text = "Open Fire";
+        Button2.onClick.RemoveAllListeners();
+        Button2.onClick.AddListener(selectedFigureOpenFire); //Why the hell doesn't unity accept the normal += sytax ?
+        Button3.GetComponentInChildren<Text>().text = "Cancel";
+        Button3.onClick.RemoveAllListeners();
+        Button3.onClick.AddListener(resetMenu);
     }
 
     private void selectedFigureOpenFire()
@@ -41,11 +54,21 @@ public class CommandManager : MonoBehaviour
         inputManager.OpenFire();
     }
 
-    private void setupMoveButton(Button button)
+
+    private void setupMoveButton()
     {
-        button.GetComponentInChildren<Text>().text = "Move";
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(selectedFigureMove); //Why the hell doesn't unity accept the normal += sytax ?
+        var moveController = SelectedFigure.gameObject.AddComponent<MoveInputController>();
+        moveController.RingPreFab = this.RingPrefab;
+        moveController.WayPointPrefab = this.WaypointPrefab;
+
+        Button1.GetComponentInChildren<Text>().text = "Move";
+        Button1.onClick.RemoveAllListeners();
+        Button1.onClick.AddListener(selectedFigureMove); //Why the hell doesn't unity accept the normal += sytax ?
+        Button2.GetComponentInChildren<Text>().text = "Reset";
+        Button2.onClick.RemoveAllListeners();
+        Button3.GetComponentInChildren<Text>().text = "Cancel";
+        Button3.onClick.RemoveAllListeners();
+        Button3.onClick.AddListener(resetMenu);
     }
 
     private void selectedFigureMove()
@@ -54,20 +77,35 @@ public class CommandManager : MonoBehaviour
         inputManager.MoveToWaypoints();
     }
 
-    //public void UpdatePhase(TurnPhase currentPhase)
-    //{
-    //    phaseText = currentPhase.ToString();
-    //    switch (currentPhase)
-    //    {
-    //        case TurnPhase.Shooting:
-    //            setupShootingButton(Button1);
-    //            break;
-    //        case TurnPhase.Movement:
-    //            setupMoveButton(Button1);
-    //            break;
-    //    }
-    //    UpdateCommandTextBar();
-    //}
+    public void UpdateFigure(FullFigure figure)
+    {
+        SelectedFigure = figure;
+        resetMenu();
+    }
+
+    void resetMenu()
+    {
+        var moveController = SelectedFigure.gameObject.GetComponent<MoveInputController>();
+        if(moveController != null)
+            GameObject.Destroy(moveController);
+
+        var shootController = SelectedFigure.gameObject.GetComponent<ShootInputController>();
+        if (shootController != null)
+            GameObject.Destroy(shootController);
+
+        //TODO: Update for figure's available actions
+        Button1.GetComponentInChildren<Text>().text = "Move";
+        Button1.onClick.AddListener(setupMoveButton);
+        Button2.GetComponentInChildren<Text>().text = "Shoot";
+        Button2.onClick.AddListener(setupShootingButton);
+        Button3.GetComponentInChildren<Text>().text = "Ability";
+        Button3.onClick.AddListener(setupAbilityButton);
+    }
+
+    private void setupAbilityButton()
+    {
+        //throw new NotImplementedException();
+    }
 
     public void UpdatePlayer(PlayerId player)
     {

@@ -10,8 +10,7 @@ public class MoveInputController : MonoBehaviour {
 
     //Prefab to create waypoints
     public GameObject WayPointPrefab;
-    //Camera Rig so we can find the Camera Raycaster
-    public GameObject CameraRig;
+
     //Rangerfinder Ring for UI use
     public GameObject RingPreFab;
 

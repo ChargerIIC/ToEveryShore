@@ -18,7 +18,7 @@ public class GuiController : MonoBehaviour
     {
         var figure = pGameObject.GetComponent<FullFigure>();//grab the figure class
         Stats.Update(figure);
-
+        Commands.UpdateFigure(figure);
     }
 
     public void NotifyOfPlayerChange(PlayerId currentPlayer)
