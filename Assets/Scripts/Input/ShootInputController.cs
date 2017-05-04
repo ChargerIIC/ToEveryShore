@@ -12,7 +12,7 @@ public class ShootInputController : MonoBehaviour {
     #region Class Level Variables
 
     //Camera Rig so we can find the Camera Raycaster
-    public GameObject CameraRig;
+    //public GameObject CameraRig;
     private PlayableFigure figure = null;
     private GameManager gameManager = null;
     private CameraRaycaster cameraRaycaster = null;
