@@ -37,7 +37,7 @@ public class MoveInputController : MonoBehaviour {
         moveToSpend = figure.Movement * Globals.WorldToGameFactor;
         lineRenderer = GetComponent<LineRenderer>();
         //TODO add to workflow later
-        MovementRing.GetComponent<Ring>().Radius = figure.Movement * Globals.WorldToGameFactor;
+        MovementRing.GetComponent<Circle>().Radius = figure.Movement * Globals.WorldToGameFactor;
     }
 
     // Update is called once per frame
@@ -58,7 +58,7 @@ public class MoveInputController : MonoBehaviour {
                 aiCharacterControl.SetTarget(transform);
                 lineRenderer.positionCount = 0;
                 MovementRing.transform.position = new Vector3(WayPoint.transform.position.x, 0.5f, WayPoint.transform.position.z);
-                MovementRing.GetComponent<Ring>().Radius = this.moveToSpend * Globals.WorldToGameFactor;
+                MovementRing.GetComponent<Circle>().Radius = this.moveToSpend * Globals.WorldToGameFactor;
 
             }
             else
@@ -150,7 +150,7 @@ public class MoveInputController : MonoBehaviour {
             {
                 ring = Instantiate(RingPreFab, transform.position, Quaternion.identity);
                 ring.transform.Rotate(new Vector3(90, 0, 0));
-                ring.GetComponent<Ring>().Radius = figure.Movement * Globals.WorldToGameFactor;
+                ring.GetComponent<Circle>().Radius = figure.Movement * Globals.WorldToGameFactor;
             }
             return ring;
         }
