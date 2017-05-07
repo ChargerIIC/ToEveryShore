@@ -13,7 +13,8 @@ public class CommandManager : MonoBehaviour
     public Button Button3;
 
     public FullFigure SelectedFigure;
-    public GameObject RingPrefab;
+    public GameObject MovementRingPrefab;
+    public GameObject RangeRingPrefab;
     public GameObject WaypointPrefab;
 
     private string currentPlayer = "";
@@ -42,7 +43,8 @@ public class CommandManager : MonoBehaviour
         if (moveController != null)
             GameObject.Destroy(moveController);
 
-        SelectedFigure.gameObject.AddComponent<ShootInputController>();
+        var shootController = SelectedFigure.gameObject.AddComponent<ShootInputController>();
+        shootController.RingPrefab = RangeRingPrefab;
 
         //TODO: Button for each weapon
         Button1.gameObject.SetActive(false);
@@ -73,8 +75,7 @@ public class CommandManager : MonoBehaviour
             GameObject.Destroy(shootController);
 
         var moveController = SelectedFigure.gameObject.AddComponent<MoveInputController>();
-
-        moveController.RingPreFab = this.RingPrefab;
+        moveController.RingPreFab = this.MovementRingPrefab;
         moveController.WayPointPrefab = this.WaypointPrefab;
 
         Button1.gameObject.SetActive(true);

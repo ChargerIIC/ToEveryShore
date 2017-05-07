@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using MoenenGames.Shape;
 using UnityEngine;
 
 /// <summary>
@@ -13,11 +14,13 @@ public class ShootInputController : MonoBehaviour {
 
     //Camera Rig so we can find the Camera Raycaster
     //public GameObject CameraRig;
+    public GameObject RingPrefab;
     private PlayableFigure figure = null;
     private GameManager gameManager = null;
     private CameraRaycaster cameraRaycaster = null;
     private LineRenderer lineRenderer = null;
-
+    //private GameObject ring;
+    private List<GameObject> rangeRingStore = new List<GameObject>();
     #endregion Class Level Variables
 
     // Use this for initialization
@@ -40,4 +43,17 @@ public class ShootInputController : MonoBehaviour {
             gameManager.ResolveAttack(weapon);
         }
     }
+
+    void OnMouseEnter()
+    {
+        foreach (var weapon in figure.Weapons)
+        {
+            var ring = Instantiate(RingPrefab, transform.position, Quaternion.identity);
+            ring.transform.Rotate(new Vector3(90, 0, 0));
+            var ringComponent = ring.GetComponent<Ring>();
+            ringComponent.Thickness = 0.05f;
+            ringComponent.Radius = weapon.EffectiveRange * Globals.WorldToGameFactor;
+        }
+    }
+
 }

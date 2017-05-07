@@ -26,11 +26,6 @@ public class GuiController : MonoBehaviour
         Commands.UpdatePlayer(currentPlayer);
     }
 
-    //public void NotifyOfPhaseChange(TurnPhase currentPhase)
-    //{
-    //    Commands.UpdatePhase(currentPhase);
-    //}
-
     private CommandManager commandManager;
     protected CommandManager Commands
     {
