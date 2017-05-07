@@ -53,7 +53,14 @@ public class ShootInputController : MonoBehaviour {
             var ringComponent = ring.GetComponent<Ring>();
             ringComponent.Thickness = 0.05f;
             ringComponent.Radius = weapon.EffectiveRange * Globals.WorldToGameFactor;
+            rangeRingStore.Add(ring);
         }
+    }
+
+    void OnMouseExit()
+    {
+        rangeRingStore.ForEach(x => GameObject.Destroy(x));
+        rangeRingStore.Clear();
     }
 
 }
